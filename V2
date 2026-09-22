@@ -1,0 +1,36 @@
+#1st project in python (second variant of password generator)
+
+import random
+
+lower = "abcdefghijklmnopqrstwxyz"
+
+upper = "ABCDEFGHIJKLMNOPQRSTWXYZ"
+
+symbols = "~`@#$%^&*()_+-"
+
+print("What type of password do you want to generate?")
+
+input1 = input("Enter 'lower' for lowercase, 'upper' for uppercase, 'symbols' for symbols, or 'all' for all types: ")
+
+if input1 == "lower":
+    all = lower
+elif input1 == "upper":
+    all = upper
+elif input1 == "symbols":
+    all = symbols
+else:
+    all = lower + upper + symbols
+
+length = int(input("Enter the length of the password, it should be between 6 and 12 characters: "))
+
+while length < 6:
+    print("Password length should be at least 6 characters.")
+    length = int(input("Enter the length of the password, it should be between 6 and 12 characters: "))
+
+while length > 12:
+    print("Password length should not exceed 12 characters.")
+    length = int(input("Enter the length of the password, it should be between 6 and 12 characters: "))
+
+password="".join(random.sample(all,length))
+
+print("This is your password:",password)
